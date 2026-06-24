@@ -1,0 +1,39 @@
+---
+description: Core conventions for the embedded-hub monorepo
+alwaysApply: true
+---
+
+# Repository conventions
+
+## Layout
+
+- All firmware projects live under `projects/`.
+- Use naming: `projects/NN-kebab-name/` where `NN` is a two-digit ordinal (`00`, `01`, …).
+- Increment the ordinal for each new project; scan existing folders to find the next number.
+
+## Required per project
+
+- `NN-name.ino` — main sketch (filename must match folder name for Arduino IDE)
+- `README.md` — goal, board, upload steps
+- `docs/` — Markdown documentation (English)
+
+## Language
+
+- Documentation and README files: **English**
+- Code and comments: **English**
+
+## Do not commit
+
+- Build artifacts (`build/`, `*.hex`, `*.elf`, `*.bin`)
+- Secrets (`secrets.h`, `.env`, credentials files)
+
+## Future platforms
+
+When adding ESP32 or robotics projects, document the board variant and toolchain in `docs/hardware.md`. Keep the same `NN-name` folder layout unless a project genuinely needs a split structure (e.g. separate `firmware/` and `companion/`).
+
+## Optional folders (add when needed)
+
+- `lib/` — vendored libraries
+- `schematics/` — wiring diagrams
+- `photos/` — build documentation
+- `docs/troubleshooting.md`, `docs/changelog.md`

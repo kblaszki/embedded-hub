@@ -1,0 +1,43 @@
+---
+description: Arduino sketch conventions for projects in this repo
+globs: projects/**/*.ino
+alwaysApply: false
+---
+
+# Arduino sketches
+
+## Arduino IDE constraint
+
+The sketch folder name **must match** the `.ino` filename (without extension).
+
+```
+projects/03-sensor-read/
+  03-sensor-read.ino   ✅
+  sensor-read.ino      ❌
+```
+
+## Structure
+
+- Use standard `setup()` and `loop()`.
+- When a sketch grows beyond ~100 lines, extract reusable logic into `.h` / `.cpp` files in the same folder.
+
+## Documentation
+
+- Document all pin assignments and peripherals in `docs/wiring.md`.
+- List board model and components in `docs/hardware.md`.
+
+## Arduino Uno defaults
+
+- 16 MHz, 5 V logic
+- ~2 KB SRAM — avoid large buffers and long strings; mention memory impact when relevant
+- Built-in LED: `LED_BUILTIN` (pin 13)
+
+## Timing
+
+- `delay()` is fine for simple sketches (e.g. blink).
+- For multitasking (sensors + motors + comms), prefer non-blocking patterns (`millis()` timers) — note this in docs when introducing it.
+
+## Libraries
+
+- Prefer built-in Arduino libraries when possible.
+- Vendored copies go in the project's `lib/` folder; document the library and version in `docs/hardware.md`.
