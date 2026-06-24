@@ -27,6 +27,13 @@ Every project should contain:
 
 See [`.cursor/README.md`](.cursor/README.md) for AI agent rules and skills used in this repo.
 
+## Circuit diagrams and simulation
+
+| Tool | Guide | Role in this repo |
+|------|-------|-------------------|
+| **Wokwi** | [WOKWI.md](WOKWI.md) | Primary — `diagram.json` + simulation in Cursor |
+| **Fritzing** | [FRITZING.md](FRITZING.md) | Optional — breadboard/PCB diagrams (`.fzz`) |
+
 ## Projects
 
 | # | Name | Board | Description |
@@ -39,8 +46,9 @@ Add these when a project needs them:
 
 | Path | Purpose |
 |------|---------|
+| `diagram.json`, `wokwi.toml` | Wokwi circuit + simulation ([WOKWI.md](WOKWI.md)) |
 | `lib/` | Vendored Arduino libraries |
-| `schematics/` | Wiring diagrams (Fritzing, KiCad, PDF) |
+| `schematics/` | Static diagrams (Fritzing SVG, KiCad, PDF) — see [FRITZING.md](FRITZING.md) |
 | `photos/` | Build and breadboard photos |
 | `docs/troubleshooting.md` | Upload/runtime issue notes |
 | `docs/changelog.md` | Firmware version history |

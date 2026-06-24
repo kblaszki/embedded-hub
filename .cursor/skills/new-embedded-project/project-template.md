@@ -27,6 +27,10 @@ Brief description of what this project does.
 
 Describe what should happen after a successful upload.
 
+## Simulation (Wokwi)
+
+Optional. Add `diagram.json` and `wokwi.toml` for circuit visualization and simulation. See [WOKWI.md](../../WOKWI.md).
+
 ## Documentation
 
 - [Overview](docs/overview.md)

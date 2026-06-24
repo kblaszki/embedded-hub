@@ -28,6 +28,8 @@ Example: if `00-blink` and `01-sensor` exist, next is `02`.
 projects/NN-name/
 ├── NN-name.ino
 ├── README.md
+├── diagram.json          # optional — Wokwi circuit
+├── wokwi.toml            # optional — Wokwi firmware path
 └── docs/
     ├── overview.md
     ├── hardware.md

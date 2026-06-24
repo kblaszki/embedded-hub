@@ -8,6 +8,12 @@
 
 No external wiring is needed for this project.
 
+## Wokwi simulation
+
+The [diagram.json](../diagram.json) in this folder contains only a `wokwi-arduino-uno` part. The onboard LED is simulated internally on pin 13 — no `connections` entries are required.
+
+To run the simulator, see the **Simulation (Wokwi)** section in [README.md](../README.md).
+
 ## Built-in LED
 
 The Arduino Uno has a surface-mount LED connected to pin 13 through a current-limiting resistor. The sketch drives this LED directly — no breadboard required.
