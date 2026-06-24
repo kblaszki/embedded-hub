@@ -1,0 +1,32 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE / editor (local settings only)
+.vscode/
+
+# Arduino IDE build artifacts
+build/
+*.hex
+*.elf
+*.eep
+
+# PlatformIO (future projects)
+.pio/
+.pioenvs/
+
+# ESP-IDF (future projects)
+sdkconfig.old
+managed_components/
+
+# Secrets — never commit credentials
+.env
+secrets.h
+credentials.*
+*.pem
+*.key
+
+# Firmware binaries
+*.bin
+*.uf2
