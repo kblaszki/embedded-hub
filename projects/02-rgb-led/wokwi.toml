@@ -1,0 +1,3 @@
+[wokwi]
+version = 1
+firmware = "build/02-rgb-led.ino.hex"
