@@ -39,6 +39,10 @@ See [`.cursor/README.md`](.cursor/README.md) for AI agent rules and skills used 
 | # | Name | Board | Description |
 |---|------|-------|-------------|
 | 00 | [00-blink](projects/00-blink/) | Arduino Uno | Built-in LED blink — first template project |
+| 01 | [01-led-buttons](projects/01-led-buttons/) | Arduino Uno | External LED blink or two-button on/off control |
+| 02 | [02-rgb-led](projects/02-rgb-led/) | Arduino Uno | RGB LED color mixing with PWM |
+| 03 | [03-buzzer](projects/03-buzzer/) | Arduino Uno | Active or passive buzzer beeps and tone scale |
+| 04 | [04-shift-register](projects/04-shift-register/) | Arduino Uno | 74HC595 LED chase, 7-segment, or light bar |
 
 ## Optional per-project folders
 
