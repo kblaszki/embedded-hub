@@ -1,0 +1,3 @@
+[wokwi]
+version = 1
+firmware = "build/01-led-buttons.ino.hex"
