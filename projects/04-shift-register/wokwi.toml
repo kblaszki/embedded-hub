@@ -1,0 +1,3 @@
+[wokwi]
+version = 1
+firmware = "build/04-shift-register.ino.hex"
