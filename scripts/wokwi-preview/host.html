@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Wokwi preview capture</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        background: #1a1a2e;
+        overflow: hidden;
+      }
+      #wokwi-embed {
+        border: none;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <iframe
+      id="wokwi-embed"
+      src="https://wokwi.com/experimental/embed?client_id=wokwi_client_omf4ejkz6n6twj7d3x2eqmyp"
+      title="Wokwi simulator"
+    ></iframe>
+    <script type="module" src="./capture-driver.js"></script>
+  </body>
+</html>

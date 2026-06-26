@@ -29,7 +29,20 @@ Describe what should happen after a successful upload.
 
 ## Simulation (Wokwi)
 
-Optional. Add `diagram.json` and `wokwi.toml` for circuit visualization and simulation. See [WOKWI.md](../../WOKWI.md).
+Optional. Add `diagram.json`, `wokwi.toml`, and `schematics/preview.png` (CI-generated teaser). See [WOKWI.md](../../WOKWI.md).
+
+Preview timing in `wokwi.toml`:
+
+```toml
+[preview]
+delay_ms = 1500
+width = 1200
+height = 675
+offset_left = 0
+offset_top = 0
+```
+
+Preview PNGs are auto-centered at capture time for single-part diagrams only; use `offset_*` for fine-tuning.
 
 ## Documentation
 

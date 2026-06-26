@@ -6,6 +6,9 @@ desktop.ini
 # IDE / editor (local settings only)
 .vscode/
 
+# Node (Wokwi preview capture)
+node_modules/
+
 # Arduino IDE build artifacts
 build/
 *.hex

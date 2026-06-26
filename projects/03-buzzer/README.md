@@ -38,6 +38,8 @@ This project includes `diagram.json` and `wokwi.toml` for [Wokwi](https://wokwi.
 
 The Wokwi buzzer part behaves like a passive buzzer; use `Passive` mode for simulation.
 
+The README teaser [`schematics/preview.png`](schematics/preview.png) is generated locally with the `wokwi-preview` skill (see [WOKWI.md](../../WOKWI.md)).
+
 ## Documentation
 
 - [Overview](docs/overview.md)

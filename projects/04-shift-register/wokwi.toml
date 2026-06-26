@@ -1,3 +1,8 @@
 [wokwi]
 version = 1
 firmware = "build/04-shift-register.ino.hex"
+
+[preview]
+delay_ms = 2000
+width = 1200
+height = 800

@@ -1,3 +1,8 @@
 [wokwi]
 version = 1
 firmware = "build/00-blink.ino.hex"
+
+[preview]
+delay_ms = 1500
+width = 1200
+height = 675

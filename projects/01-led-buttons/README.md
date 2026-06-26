@@ -38,6 +38,8 @@ This project includes `diagram.json` and `wokwi.toml` for [Wokwi](https://wokwi.
 
 Use `DemoButtons` mode for the simulated circuit (two buttons + LED).
 
+The README teaser [`schematics/preview.png`](schematics/preview.png) reflects the compile-time `DEMO` constant — regenerate with the `wokwi-preview` skill when the sketch or diagram changes.
+
 ## Documentation
 
 - [Overview](docs/overview.md)

@@ -40,6 +40,8 @@ This project includes `diagram.json` and `wokwi.toml` for [Wokwi](https://wokwi.
 
 The default diagram matches **LedChase** (74HC595 + 8 LEDs). See wiring docs for SevenSegment and LightBar breadboard layouts.
 
+The README teaser [`schematics/preview.png`](schematics/preview.png) reflects the compile-time `DEMO` constant — regenerate with the `wokwi-preview` skill when the sketch or diagram changes.
+
 ## Documentation
 
 - [Overview](docs/overview.md)

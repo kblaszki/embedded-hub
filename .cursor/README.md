@@ -54,6 +54,6 @@ Skills are directories containing a `SKILL.md` file. They guide multi-step workf
 | Scope | Location |
 |-------|----------|
 | Repo-wide conventions | `.cursor/rules/` |
-| Reusable workflows | `.cursor/skills/` |
+| Reusable workflows | `.cursor/skills/` (e.g. `new-embedded-project`, `wokwi-preview`) |
 | Project-specific docs | `projects/NN-name/docs/` |
 | Quick start per project | `projects/NN-name/README.md` |

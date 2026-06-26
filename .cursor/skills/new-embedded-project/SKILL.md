@@ -29,7 +29,8 @@ projects/NN-name/
 ├── NN-name.ino
 ├── README.md
 ├── diagram.json          # optional — Wokwi circuit
-├── wokwi.toml            # optional — Wokwi firmware path
+├── wokwi.toml            # optional — Wokwi firmware + [preview] timing
+├── schematics/           # preview.png — generate with wokwi-preview skill
 └── docs/
     ├── overview.md
     ├── hardware.md

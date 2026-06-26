@@ -106,8 +106,51 @@ Always align pin numbers with `docs/wiring.md` and your `#define` / `pinMode` us
 
 - Commit `diagram.json` and `wokwi.toml` — they are source, not build output.
 - Do **not** commit `build/` (already in `.gitignore`).
+- Commit `schematics/preview.png` — README teaser (generate locally with the `wokwi-preview` skill or `npm run capture-preview:all`).
 - For complex circuits, add a short “Simulation” section in the project `README.md`.
-- Optional: export a screenshot to `schematics/` for GitHub preview without running the extension.
+
+## Preview images
+
+GitHub README teasers use `projects/NN-name/schematics/preview.png` — a Wokwi simulation screenshot.
+
+### Generate locally
+
+Use the **`wokwi-preview`** Cursor skill (`.cursor/skills/wokwi-preview/`) or run from the repository root:
+
+```bash
+npm ci
+npx playwright install chromium
+
+# All projects with wokwi.toml:
+npm run capture-preview:all
+
+# One project:
+cd projects/00-blink
+arduino-cli compile --fqbn arduino:avr:uno --output-dir build 00-blink.ino
+cd ../..
+npm run capture-preview -- --project projects/00-blink
+```
+
+Commit updated PNGs when you are happy with them — nothing runs automatically on push.
+
+### Per-project timing
+
+Optional `[preview]` section in `wokwi.toml`:
+
+```toml
+[preview]
+delay_ms = 1500
+width = 1200
+height = 675
+offset_left = 0   # optional fine-tune after auto-center
+offset_top = 0
+```
+
+`delay_ms` controls how long the simulation runs before the screenshot (e.g. catch LED on-state). The preview reflects the compile-time `DEMO` constant in each sketch.
+
+Circuits are **auto-centered** in the preview frame when the diagram has only one part (e.g. `00-blink`). Multi-part diagrams are left as-is. Optional `offset_left` / `offset_top` in `[preview]` fine-tune any project.
+
+See [scripts/wokwi-preview/README.md](scripts/wokwi-preview/README.md) for troubleshooting.
 
 ## Example in this repo
 
@@ -120,6 +163,7 @@ The agent can reliably generate and update:
 - `diagram.json` from a pin list or `.ino` file
 - `docs/wiring.md` pin tables
 - `wokwi.toml` firmware paths
+- `schematics/preview.png` via the `wokwi-preview` skill
 
 Prefer Wokwi over Fritzing when asking the agent to create wiring from a description ([FRITZING.md](FRITZING.md) compares both).
 
@@ -127,4 +171,3 @@ Prefer Wokwi over Fritzing when asking the agent to create wiring from a descrip
 
 - [Getting started with Wokwi for VS Code](https://docs.wokwi.com/vscode/getting-started)
 - [Arduino Uno part reference](https://docs.wokwi.com/parts/wokwi-arduino-uno)
-- [Wokwi CI (GitHub Actions)](https://docs.wokwi.com/wokwi-ci/getting-started) — run simulations in CI (advanced)

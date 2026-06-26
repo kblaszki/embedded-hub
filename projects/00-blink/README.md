@@ -32,6 +32,8 @@ This project includes `diagram.json` and `wokwi.toml` for [Wokwi](https://wokwi.
 
 3. Run **Wokwi: Start Simulator** (`F1`).
 
+The README teaser [`schematics/preview.png`](schematics/preview.png) is generated locally with the `wokwi-preview` skill or `npm run capture-preview` (see [WOKWI.md](../../WOKWI.md)).
+
 The diagram contains only the Arduino Uno — the built-in LED (pin 13) is part of the board and blinks in simulation without extra wiring.
 
 ## Documentation

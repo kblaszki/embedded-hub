@@ -1,0 +1,12 @@
+{
+  "name": "embedded-hub",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "capture-preview": "node scripts/wokwi-preview/capture.mjs",
+    "capture-preview:all": "node scripts/wokwi-preview/capture-all.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.49.1"
+  }
+}
