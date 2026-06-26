@@ -5,7 +5,7 @@
 
 meta:
   updated: "2026-06-24"
-  notes: Kit 01, kit 02, and kit 03 manifests.
+  notes: Kit 01 through kit 04 manifests.
 
 kits:
   - id: kit-01-uno-learning
@@ -19,6 +19,10 @@ kits:
     name: 4WD smart car chassis kit
     manifest: kits/kit-03-4wd.md
     board: arduino-uno-r3
+  - id: kit-04-esp32-keyestudio
+    name: Keyestudio ESP32 Learning Kit Ultimate Edition (KS5010)
+    manifest: kits/kit-04-esp32.md
+    board: esp32-devkit
 
 boards:
   - id: arduino-uno-r3
@@ -36,6 +40,16 @@ boards:
       - 04-shift-register
     notes: Uno-compatible clone typical; one from kit 01, one from kit 03.
 
+  - id: esp32-devkit
+    name: ESP32 development board (Keyestudio KS5010 class)
+    qty: 1
+    status: owned
+    interface: none
+    voltage: 3v3
+    kits: [kit-04-esp32-keyestudio]
+    used_in: []
+    notes: ESP32-WROOM module; 3.3 V logic; micro-USB typical.
+
 passives:
   - id: led-5mm
     name: LED 5 mm (single color)
@@ -49,6 +63,46 @@ passives:
       - 04-shift-register
     notes: Kit 01 includes 5 pcs; use with series resistor.
 
+  - id: led-5mm-blue
+    name: LED 5 mm blue
+    qty: 10
+    status: owned
+    interface: gpio
+    voltage: 5v
+    kits: [kit-04-esp32-keyestudio]
+    used_in: []
+    notes: Use with series resistor.
+
+  - id: led-5mm-red
+    name: LED 5 mm red
+    qty: 10
+    status: owned
+    interface: gpio
+    voltage: 5v
+    kits: [kit-04-esp32-keyestudio]
+    used_in: []
+    notes: Use with series resistor.
+
+  - id: led-5mm-yellow
+    name: LED 5 mm yellow
+    qty: 10
+    status: owned
+    interface: gpio
+    voltage: 5v
+    kits: [kit-04-esp32-keyestudio]
+    used_in: []
+    notes: Use with series resistor.
+
+  - id: led-5mm-green
+    name: LED 5 mm green
+    qty: 10
+    status: owned
+    interface: gpio
+    voltage: 5v
+    kits: [kit-04-esp32-keyestudio]
+    used_in: []
+    notes: Use with series resistor.
+
   - id: resistor-assortment
     name: Resistor assortment (mixed values pack)
     qty: 1
@@ -61,47 +115,97 @@ passives:
 
   - id: resistor-220
     name: Resistor 220 Ω
-    qty: null
+    qty: 10
     status: owned
     interface: none
     voltage: both
-    kits: []
+    kits: [kit-04-esp32-keyestudio]
     used_in:
       - 01-led-buttons
       - 04-shift-register
-    notes: Likely in assortment pack; set qty after sorting.
+    notes: Kit 04 includes 10 pcs; additional values may be in kit 01 assortment.
 
   - id: resistor-10k
     name: Resistor 10 kΩ
-    qty: null
+    qty: 10
     status: owned
     interface: none
     voltage: both
-    kits: []
+    kits: [kit-04-esp32-keyestudio]
     used_in:
       - 04-shift-register
-    notes: Likely in assortment pack; LDR voltage divider.
+    notes: Kit 04 includes 10 pcs; LDR voltage divider.
+
+  - id: resistor-1k
+    name: Resistor 1 kΩ
+    qty: 10
+    status: owned
+    interface: none
+    voltage: both
+    kits: [kit-04-esp32-keyestudio]
+    used_in: []
+    notes: Kit 04 includes 10 pcs.
 
   - id: potentiometer
     name: Potentiometer (breadboard trimmer)
-    qty: 1
+    qty: 2
     status: owned
     interface: analog
     voltage: 5v
-    kits: [kit-01-uno-learning]
+    kits: [kit-01-uno-learning, kit-04-esp32-keyestudio]
     used_in: []
     notes: Analog input; value often 10 kΩ in kits.
 
   - id: pushbutton-tactile
     name: Tactile push button (momentary NO)
-    qty: null
+    qty: 4
     status: owned
     interface: gpio
     voltage: 5v
-    kits: []
+    kits: [kit-04-esp32-keyestudio]
     used_in:
       - 01-led-buttons
-    notes: Separate from kit key-switch module.
+    notes: Kit 04 includes 4 pcs.
+
+  - id: button-cap-yellow
+    name: Push button cap (yellow)
+    qty: 4
+    status: owned
+    interface: none
+    voltage: both
+    kits: [kit-04-esp32-keyestudio]
+    used_in: []
+    notes: Colored caps for tactile switches.
+
+  - id: thermistor-10k
+    name: Thermistor 10 kΩ (NTC)
+    qty: 1
+    status: owned
+    interface: analog
+    voltage: 5v
+    kits: [kit-04-esp32-keyestudio]
+    used_in: []
+    notes: NTC temperature sensing; use with fixed resistor divider.
+
+  - id: transistor-s8050
+    name: NPN transistor (S8050)
+    qty: 1
+    status: owned
+    interface: none
+    voltage: both
+    kits: [kit-04-esp32-keyestudio]
+    used_in: []
+    notes: Low-power NPN switch; fan/motor driver experiments.
+
+  - id: transistor-s8550
+    name: PNP transistor (S8550)
+    qty: 1
+    status: owned
+    interface: none
+    voltage: both
+    kits: [kit-04-esp32-keyestudio]
+    used_in: []
+    notes: Complementary PNP to S8050.
 
   - id: key-switch
     name: Key switch / push button module
@@ -115,11 +219,11 @@ passives:
 
   - id: rgb-led-cc
     name: RGB LED common cathode (discrete)
-    qty: null
+    qty: 1
     status: owned
     interface: pwm
     voltage: 5v
-    kits: []
+    kits: [kit-04-esp32-keyestudio]
     used_in:
       - 02-rgb-led
     notes: Separate from kit RGB module board.
@@ -130,7 +234,7 @@ passives:
     status: owned
     interface: pwm
     voltage: 5v
-    kits: [kit-01-uno-learning, kit-02-sensors-45]
+    kits: [kit-01-uno-learning, kit-02-sensors-45, kit-04-esp32-keyestudio]
     used_in: []
     notes: 3-color RGB LED module on PCB; common cathode or anode — verify silkscreen.
 
@@ -178,21 +282,21 @@ modules:
 
   - id: buzzer-active
     name: Active buzzer module
-    qty: 1
+    qty: 2
     status: owned
     interface: gpio
     voltage: 5v
-    kits: [kit-02-sensors-45]
+    kits: [kit-02-sensors-45, kit-04-esp32-keyestudio]
     used_in: []
     notes: Drives itself when powered; digital HIGH typical.
 
   - id: buzzer-passive-small
     name: Small passive buzzer module
-    qty: 1
+    qty: 2
     status: owned
     interface: pwm
     voltage: 5v
-    kits: [kit-02-sensors-45]
+    kits: [kit-02-sensors-45, kit-04-esp32-keyestudio]
     used_in: []
     notes: Needs square wave / tone(); smaller than kit 01 buzzer board.
 
@@ -258,11 +362,11 @@ modules:
 
   - id: breadboard-power
     name: Breadboard power supply module
-    qty: 1
+    qty: 2
     status: owned
     interface: none
     voltage: both
-    kits: [kit-02-sensors-45]
+    kits: [kit-02-sensors-45, kit-04-esp32-keyestudio]
     used_in: []
     notes: 3.3 V / 5 V rails for breadboard; external DC input typical.
 
@@ -318,63 +422,63 @@ modules:
 
   - id: 74hc595
     name: 74HC595 shift register (DIP-16)
-    qty: 1
+    qty: 2
     status: owned
     interface: gpio
     voltage: 5v
-    kits: [kit-01-uno-learning]
+    kits: [kit-01-uno-learning, kit-04-esp32-keyestudio]
     used_in:
       - 04-shift-register
     notes: 8-bit SIPO.
 
   - id: photoresistor
     name: Photoresistor (LDR) sensor module
-    qty: 2
+    qty: 4
     status: owned
     interface: analog
     voltage: 5v
-    kits: [kit-01-uno-learning, kit-02-sensors-45]
+    kits: [kit-01-uno-learning, kit-02-sensors-45, kit-04-esp32-keyestudio]
     used_in:
       - 04-shift-register
     notes: Module with comparator or bare divider — check board.
 
   - id: ir-receiver
     name: Infrared receiver module (e.g. VS1838B)
-    qty: 2
+    qty: 3
     status: owned
     interface: gpio
     voltage: 5v
-    kits: [kit-01-uno-learning, kit-02-sensors-45]
+    kits: [kit-01-uno-learning, kit-02-sensors-45, kit-04-esp32-keyestudio]
     used_in: []
     notes: Use with IR remote; IRremote or similar library.
 
   - id: ir-remote
     name: IR remote control handset
-    qty: 1
+    qty: 2
     status: owned
     interface: none
     voltage: both
-    kits: [kit-01-uno-learning]
+    kits: [kit-01-uno-learning, kit-04-esp32-keyestudio]
     used_in: []
     notes: Paired with ir-receiver; battery often included in remote.
 
   - id: relay-1ch
     name: Relay module (1 channel, low-level trigger)
-    qty: 2
+    qty: 3
     status: owned
     interface: gpio
     voltage: 5v
-    kits: [kit-01-uno-learning, kit-02-sensors-45]
+    kits: [kit-01-uno-learning, kit-02-sensors-45, kit-04-esp32-keyestudio]
     used_in: []
     notes: Often opto-isolated; do not drive heavy loads from Arduino 5V pin.
 
   - id: sound-sensor
     name: Sound sensor module (microphone board)
-    qty: 1
+    qty: 2
     status: owned
     interface: analog
     voltage: 5v
-    kits: [kit-01-uno-learning]
+    kits: [kit-01-uno-learning, kit-04-esp32-keyestudio]
     used_in: []
     notes: Microphone / sound level board; analog + digital out typical.
 
@@ -400,41 +504,41 @@ modules:
 
   - id: uln2003-stepper-driver
     name: ULN2003 stepper motor driver board
-    qty: 1
+    qty: 2
     status: owned
     interface: gpio
     voltage: 5v
-    kits: [kit-01-uno-learning]
+    kits: [kit-01-uno-learning, kit-04-esp32-keyestudio]
     used_in: []
     notes: 4-pin connector to 28BYJ-48 stepper.
 
   - id: rfid-rc522
     name: RFID reader module (RC522, SPI)
-    qty: 1
+    qty: 2
     status: owned
     interface: spi
     voltage: 3v3
-    kits: [kit-01-uno-learning]
+    kits: [kit-01-uno-learning, kit-04-esp32-keyestudio]
     used_in: []
     notes: 3.3 V logic; level shifters or 3.3 V board recommended on 5 V Uno.
 
   - id: rfid-key-fob
     name: RFID key fob tag
-    qty: 1
+    qty: 2
     status: owned
     interface: none
     voltage: both
-    kits: [kit-01-uno-learning]
+    kits: [kit-01-uno-learning, kit-04-esp32-keyestudio]
     used_in: []
     notes: Works with rfid-rc522.
 
   - id: rfid-card
     name: RFID white card
-    qty: 1
+    qty: 2
     status: owned
     interface: none
     voltage: both
-    kits: [kit-01-uno-learning]
+    kits: [kit-01-uno-learning, kit-04-esp32-keyestudio]
     used_in: []
     notes: Works with rfid-rc522.
 
@@ -451,21 +555,21 @@ sensors:
 
   - id: flame-sensor
     name: Flame sensor module
-    qty: 2
+    qty: 3
     status: owned
     interface: analog
     voltage: 5v
-    kits: [kit-01-uno-learning, kit-02-sensors-45]
+    kits: [kit-01-uno-learning, kit-02-sensors-45, kit-04-esp32-keyestudio]
     used_in: []
     notes: IR flame detection; analog and digital outputs.
 
   - id: tilt-switch
     name: Tilt / ball switch sensor module
-    qty: 2
+    qty: 3
     status: owned
     interface: gpio
     voltage: 5v
-    kits: [kit-01-uno-learning, kit-02-sensors-45]
+    kits: [kit-01-uno-learning, kit-02-sensors-45, kit-04-esp32-keyestudio]
     used_in: []
     notes: Ball / tilt switch module; orientation alarm.
 
@@ -491,11 +595,11 @@ sensors:
 
   - id: joystick-xy
     name: XY joystick module (2-axis + push)
-    qty: 1
+    qty: 2
     status: owned
     interface: analog
     voltage: 5v
-    kits: [kit-01-uno-learning]
+    kits: [kit-01-uno-learning, kit-04-esp32-keyestudio]
     used_in: []
     notes: Two potentiometers + SW pin; analogRead on X/Y.
 
@@ -511,11 +615,11 @@ sensors:
 
   - id: dht-temp-humidity
     name: Temperature and humidity sensor module (DHT class)
-    qty: 1
+    qty: 2
     status: owned
     interface: gpio
     voltage: 5v
-    kits: [kit-02-sensors-45]
+    kits: [kit-02-sensors-45, kit-04-esp32-keyestudio]
     used_in: []
     notes: DHT11 or DHT22 on PCB; single data pin.
 
@@ -601,11 +705,11 @@ sensors:
 
   - id: ultrasonic-hcsr04
     name: Ultrasonic distance sensor module (HC-SR04 class)
-    qty: 2
+    qty: 3
     status: owned
     interface: gpio
     voltage: 5v
-    kits: [kit-02-sensors-45, kit-03-4wd]
+    kits: [kit-02-sensors-45, kit-03-4wd, kit-04-esp32-keyestudio]
     used_in: []
     notes: TRIG/ECHO pins; NewPing or similar library.
 
@@ -669,26 +773,66 @@ sensors:
     used_in: []
     notes: Multi-channel IR reflectance board for line follow; analog outputs typical.
 
-actuators:
-  - id: stepper-28byj-48
-    name: Stepper motor 28BYJ-48 (5 V)
+  - id: lm35
+    name: LM35 temperature sensor (analog)
+    qty: 1
+    status: owned
+    interface: analog
+    voltage: 5v
+    kits: [kit-04-esp32-keyestudio]
+    used_in: []
+    notes: Linear °C output; 10 mV/°C typical.
+
+  - id: pir-motion
+    name: PIR motion sensor module
     qty: 1
     status: owned
     interface: gpio
     voltage: 5v
-    kits: [kit-01-uno-learning]
+    kits: [kit-04-esp32-keyestudio]
+    used_in: []
+    notes: HC-SR501 class; digital out on motion.
+
+actuators:
+  - id: stepper-28byj-48
+    name: Stepper motor 28BYJ-48 (5 V)
+    qty: 2
+    status: owned
+    interface: gpio
+    voltage: 5v
+    kits: [kit-01-uno-learning, kit-04-esp32-keyestudio]
     used_in: []
     notes: Use with uln2003-stepper-driver; external 5 V supply for torque.
 
   - id: servo-sg90
     name: Micro servo 9 g (SG90 class)
-    qty: 1
+    qty: 2
     status: owned
     interface: pwm
     voltage: 5v
-    kits: [kit-01-uno-learning]
+    kits: [kit-01-uno-learning, kit-04-esp32-keyestudio]
     used_in: []
     notes: Servo library; adequate 5 V current recommended.
+
+  - id: dc-motor-130
+    name: DC motor 130 size
+    qty: 1
+    status: owned
+    interface: gpio
+    voltage: 5v
+    kits: [kit-04-esp32-keyestudio]
+    used_in: []
+    notes: Small brushed motor; drive via transistor or driver board.
+
+  - id: fan-dc-small
+    name: Small DC fan module
+    qty: 1
+    status: owned
+    interface: gpio
+    voltage: 5v
+    kits: [kit-04-esp32-keyestudio]
+    used_in: []
+    notes: Fan blade on motor; used with S8050 driver in kit projects.
 
   - id: gear-motor-tt
     name: Gear motor TT class (3–6 V)
@@ -713,11 +857,11 @@ actuators:
 displays:
   - id: 7seg-1digit
     name: 1-digit 7-segment display
-    qty: 1
+    qty: 2
     status: owned
     interface: gpio
     voltage: 5v
-    kits: [kit-01-uno-learning]
+    kits: [kit-01-uno-learning, kit-04-esp32-keyestudio]
     used_in: []
     notes: Common cathode or anode — verify before wiring.
 
@@ -734,21 +878,21 @@ displays:
 
   - id: 7seg-4digit
     name: 4-digit 7-segment display module
-    qty: 1
+    qty: 2
     status: owned
     interface: gpio
     voltage: 5v
-    kits: [kit-01-uno-learning]
+    kits: [kit-01-uno-learning, kit-04-esp32-keyestudio]
     used_in: []
     notes: Often TM1637 or bare 4-digit CC; check driver chip.
 
   - id: led-matrix-8x8
     name: 8×8 LED matrix module (MAX7219)
-    qty: 1
+    qty: 2
     status: owned
     interface: spi
     voltage: 5v
-    kits: [kit-01-uno-learning]
+    kits: [kit-01-uno-learning, kit-04-esp32-keyestudio]
     used_in: []
     notes: SPI (DIN, CLK, CS); LedControl or MD_MAX72XX library.
 
@@ -762,36 +906,86 @@ displays:
     used_in: []
     notes: LiquidCrystal I2C; address 0x27 or 0x3F typical.
 
+  - id: lcd128x32-i2c
+    name: LCD / OLED 128×32 I2C (SSD1306 class)
+    qty: 1
+    status: owned
+    interface: i2c
+    voltage: 3v3
+    kits: [kit-04-esp32-keyestudio]
+    used_in: []
+    notes: 128×32 dot matrix display; I2C address 0x3C typical.
+
   - id: keypad-4x4
     name: 4×4 matrix membrane keypad
-    qty: 1
+    qty: 2
     status: owned
     interface: gpio
     voltage: 5v
-    kits: [kit-01-uno-learning]
+    kits: [kit-01-uno-learning, kit-04-esp32-keyestudio]
     used_in: []
     notes: 8 pins; Keypad library; scan rows/columns.
 
 tools:
   - id: breadboard
     name: Solderless breadboard
+    qty: 2
+    status: owned
+    interface: none
+    voltage: both
+    kits: [kit-01-uno-learning, kit-04-esp32-keyestudio]
+    used_in: []
+    notes: One from kit 01, one from kit 04.
+
+  - id: jumper-wires
+    name: Jumper wire kit
+    qty: 95
+    status: owned
+    interface: none
+    voltage: both
+    kits: [kit-01-uno-learning, kit-04-esp32-keyestudio]
+    used_in: []
+    notes: Kit 01 lists 65 pcs; kit 04 adds 30 pcs.
+
+  - id: dupont-mf-40
+    name: Dupont wire male-to-female (40 pcs)
+    qty: 40
+    status: owned
+    interface: none
+    voltage: both
+    kits: [kit-04-esp32-keyestudio]
+    used_in: []
+    notes: 40-pin M-F jumper set from kit 04.
+
+  - id: usb-cable-esp32
+    name: USB cable for ESP32 (micro-USB data)
     qty: 1
     status: owned
     interface: none
     voltage: both
-    kits: [kit-01-uno-learning]
+    kits: [kit-04-esp32-keyestudio]
     used_in: []
-    notes: Kit 01.
+    notes: Data-capable micro-USB; must support serial upload.
 
-  - id: jumper-wires
-    name: Jumper wire kit
-    qty: 65
+  - id: battery-holder
+    name: Battery holder
+    qty: 1
     status: owned
     interface: none
     voltage: both
-    kits: [kit-01-uno-learning]
+    kits: [kit-04-esp32-keyestudio]
     used_in: []
-    notes: Kit lists 65 pcs assorted jumpers.
+    notes: Typically 2×AA or 1×9 V clip style — verify kit pack.
+
+  - id: resistor-reference-card
+    name: Resistor color code reference card
+    qty: 1
+    status: owned
+    interface: none
+    voltage: both
+    kits: [kit-04-esp32-keyestudio]
+    used_in: []
+    notes: Printed lookup card for resistor bands.
 
   - id: dupont-10p-female-male
     name: Dupont ribbon cable 10-pin female-to-male
