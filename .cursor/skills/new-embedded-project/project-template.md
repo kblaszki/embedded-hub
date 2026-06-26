@@ -12,6 +12,8 @@ Replace all `NN`, `name`, `Title`, `Board`, and `Description` placeholders.
 **Board:** Board  
 **Description**
 
+<img src="schematics/preview.png" width="560" alt="Wokwi simulation preview — NN-name" />
+
 ## Goal
 
 Brief description of what this project does.
@@ -29,7 +31,7 @@ Describe what should happen after a successful upload.
 
 ## Simulation (Wokwi)
 
-Optional. Add `diagram.json`, `wokwi.toml`, and `schematics/preview.png` (CI-generated teaser). See [WOKWI.md](../../WOKWI.md).
+Optional. Add `diagram.json`, `wokwi.toml`, and `schematics/preview.png`. See [WOKWI.md](../../WOKWI.md). Show the preview image at the top of README (see above).
 
 Preview timing in `wokwi.toml`:
 

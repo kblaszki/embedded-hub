@@ -3,6 +3,8 @@
 **Board:** Arduino Uno  
 **External LED blink or two-button on/off control.**
 
+<img src="schematics/preview.png" width="560" alt="Wokwi simulation preview — external LED and push buttons" />
+
 ## Goal
 
 Learn digital output on an external LED and digital input with internal pull-up resistors on two push buttons.
@@ -36,9 +38,7 @@ This project includes `diagram.json` and `wokwi.toml` for [Wokwi](https://wokwi.
 
 3. Run **Wokwi: Start Simulator** (`F1`).
 
-Use `DemoButtons` mode for the simulated circuit (two buttons + LED).
-
-The README teaser [`schematics/preview.png`](schematics/preview.png) reflects the compile-time `DEMO` constant — regenerate with the `wokwi-preview` skill when the sketch or diagram changes.
+Use `DemoButtons` mode for the simulated circuit (two buttons + LED). Regenerate the preview with the `wokwi-preview` skill when the sketch or diagram changes.
 
 ## Documentation
 

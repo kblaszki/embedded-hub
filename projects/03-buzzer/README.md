@@ -3,6 +3,8 @@
 **Board:** Arduino Uno  
 **Digital beeps or PWM tone scale on a buzzer module.**
 
+<img src="schematics/preview.png" width="560" alt="Wokwi simulation preview — buzzer on Arduino Uno" />
+
 ## Goal
 
 Compare active buzzers (fixed tone when powered) with passive buzzers (frequency controlled via `tone()`).
@@ -36,9 +38,7 @@ This project includes `diagram.json` and `wokwi.toml` for [Wokwi](https://wokwi.
 
 3. Run **Wokwi: Start Simulator** (`F1`).
 
-The Wokwi buzzer part behaves like a passive buzzer; use `Passive` mode for simulation.
-
-The README teaser [`schematics/preview.png`](schematics/preview.png) is generated locally with the `wokwi-preview` skill (see [WOKWI.md](../../WOKWI.md)).
+The Wokwi buzzer part behaves like a passive buzzer; use `Passive` mode for simulation. Regenerate the preview with the `wokwi-preview` skill (see [WOKWI.md](../../WOKWI.md)).
 
 ## Documentation
 

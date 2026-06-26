@@ -3,6 +3,8 @@
 **Board:** Arduino Uno  
 **Minimal blink sketch using the onboard LED.**
 
+<img src="schematics/preview.png" width="560" alt="Wokwi simulation preview — Arduino Uno built-in LED blink" />
+
 ## Goal
 
 Toggle the built-in LED on and off every second. Serves as the first template project and verifies your Arduino IDE upload workflow.
@@ -32,9 +34,7 @@ This project includes `diagram.json` and `wokwi.toml` for [Wokwi](https://wokwi.
 
 3. Run **Wokwi: Start Simulator** (`F1`).
 
-The README teaser [`schematics/preview.png`](schematics/preview.png) is generated locally with the `wokwi-preview` skill or `npm run capture-preview` (see [WOKWI.md](../../WOKWI.md)).
-
-The diagram contains only the Arduino Uno — the built-in LED (pin 13) is part of the board and blinks in simulation without extra wiring.
+The diagram contains only the Arduino Uno — the built-in LED (pin 13) is part of the board and blinks in simulation without extra wiring. Regenerate the preview with the `wokwi-preview` skill (see [WOKWI.md](../../WOKWI.md)).
 
 ## Documentation
 

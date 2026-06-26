@@ -3,6 +3,8 @@
 **Board:** Arduino Uno  
 **PWM-driven RGB LED with random color channel updates.**
 
+<img src="schematics/preview.png" width="560" alt="Wokwi simulation preview — RGB LED color mixing" />
+
 ## Goal
 
 Learn `analogWrite()` PWM on three pins to mix red, green, and blue on a common-cathode RGB LED.
@@ -33,7 +35,7 @@ This project includes `diagram.json` and `wokwi.toml` for [Wokwi](https://wokwi.
 
 3. Run **Wokwi: Start Simulator** (`F1`).
 
-The README teaser [`schematics/preview.png`](schematics/preview.png) is generated locally with the `wokwi-preview` skill (see [WOKWI.md](../../WOKWI.md)).
+Regenerate the preview with the `wokwi-preview` skill (see [WOKWI.md](../../WOKWI.md)).
 
 ## Documentation
 

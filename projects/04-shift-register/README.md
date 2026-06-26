@@ -3,6 +3,8 @@
 **Board:** Arduino Uno  
 **Shift register demos: LED chase, 7-segment digits, photoresistor bar graph.**
 
+<img src="schematics/preview.png" width="560" alt="Wokwi simulation preview — 74HC595 LED chase" />
+
 ## Goal
 
 Learn the 74HC595 serial-in parallel-out shift register with `shiftOut()` — expand 3 Arduino pins into 8 outputs.
@@ -38,9 +40,7 @@ This project includes `diagram.json` and `wokwi.toml` for [Wokwi](https://wokwi.
 
 3. Run **Wokwi: Start Simulator** (`F1`).
 
-The default diagram matches **LedChase** (74HC595 + 8 LEDs). See wiring docs for SevenSegment and LightBar breadboard layouts.
-
-The README teaser [`schematics/preview.png`](schematics/preview.png) reflects the compile-time `DEMO` constant — regenerate with the `wokwi-preview` skill when the sketch or diagram changes.
+The default diagram matches **LedChase** (74HC595 + 8 LEDs). See wiring docs for SevenSegment and LightBar breadboard layouts. Regenerate the preview with the `wokwi-preview` skill when the sketch or diagram changes.
 
 ## Documentation
 
