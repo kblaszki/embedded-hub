@@ -6,3 +6,4 @@ Physical Arduino/ESP32 education sets you own. Each kit has a manifest and match
 |-----|----------|-------|
 | 01 | [kit-01-uno.md](kit-01-uno.md) | Arduino Uno |
 | 02 | [kit-02-sensors.md](kit-02-sensors.md) | — |
+| 03 | [kit-03-4wd.md](kit-03-4wd.md) | Arduino Uno |

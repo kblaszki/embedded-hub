@@ -1,6 +1,6 @@
 # Sensors
 
-See [parts.yaml](parts.yaml) → `sensors`. Kits: [kit-01-uno](kits/kit-01-uno.md), [kit-02-sensors](kits/kit-02-sensors.md).
+See [parts.yaml](parts.yaml) → `sensors`. Kits: [kit-01-uno](kits/kit-01-uno.md), [kit-02-sensors](kits/kit-02-sensors.md), [kit-03-4wd](kits/kit-03-4wd.md).
 
 | id | name | interface |
 |----|------|-----------|
@@ -15,6 +15,7 @@ See [parts.yaml](parts.yaml) → `sensors`. Kits: [kit-01-uno](kits/kit-01-uno.m
 | gyro-module | Gyro / IMU (MPU6050 class) | i2c |
 | pulse-sensor | Pulse / finger detection | analog |
 | ultrasonic-hcsr04 | Ultrasonic HC-SR04 | gpio |
+| line-tracker-module | Line tracker IR array | analog |
 | hall-switch | Hall switch | gpio |
 | hall-linear | Linear Hall | analog |
 | hall-analog | Analog Hall | analog |

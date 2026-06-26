@@ -1,6 +1,6 @@
 # Tools and prototyping
 
-See [parts.yaml](parts.yaml) → `tools`. Kits: [kit-01-uno](kits/kit-01-uno.md), [kit-02-sensors](kits/kit-02-sensors.md).
+See [parts.yaml](parts.yaml) → `tools`. Kits: [kit-01-uno](kits/kit-01-uno.md), [kit-02-sensors](kits/kit-02-sensors.md), [kit-03-4wd](kits/kit-03-4wd.md).
 
 | id | name | qty (kit 01) |
 |----|------|----------------|
@@ -11,6 +11,10 @@ See [parts.yaml](parts.yaml) → `tools`. Kits: [kit-01-uno](kits/kit-01-uno.md)
 | battery-snap-9v | 9 V battery snap | 1 |
 | breadboard-power | Breadboard power module | 1 |
 | buck-mp1584 | MP1584 buck converter | 1 |
+| chassis-acrylic-4wd | Acrylic chassis plate | 2 |
+| motor-mount-tt | TT motor mount | 4 |
+| uno-mount-plate | Uno mounting plate | 1 |
+| standoff-screw-kit | Standoffs and screws | 1 |
 
 ## Optional (not in kit 01)
 

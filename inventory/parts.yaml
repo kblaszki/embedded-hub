@@ -5,7 +5,7 @@
 
 meta:
   updated: "2026-06-24"
-  notes: Kit 01 and kit 02 manifests.
+  notes: Kit 01, kit 02, and kit 03 manifests.
 
 kits:
   - id: kit-01-uno-learning
@@ -15,22 +15,26 @@ kits:
   - id: kit-02-sensors-45
     name: 45-in-1 sensor module kit
     manifest: kits/kit-02-sensors.md
+  - id: kit-03-4wd
+    name: 4WD smart car chassis kit
+    manifest: kits/kit-03-4wd.md
+    board: arduino-uno-r3
 
 boards:
   - id: arduino-uno-r3
     name: Arduino Uno R3
-    qty: 1
+    qty: 2
     status: owned
     interface: none
     voltage: 5v
-    kits: [kit-01-uno-learning]
+    kits: [kit-01-uno-learning, kit-03-4wd]
     used_in:
       - 00-blink
       - 01-led-buttons
       - 02-rgb-led
       - 03-buzzer
       - 04-shift-register
-    notes: From learning kit 01; Uno-compatible clone typical.
+    notes: Uno-compatible clone typical; one from kit 01, one from kit 03.
 
 passives:
   - id: led-5mm
@@ -301,6 +305,16 @@ modules:
     kits: [kit-02-sensors-45]
     used_in: []
     notes: Self-flashing LED on PCB; power only, no MCU pin required.
+
+  - id: l298n-motor-driver
+    name: L298N dual H-bridge motor driver module
+    qty: 1
+    status: owned
+    interface: gpio
+    voltage: 5v
+    kits: [kit-03-4wd]
+    used_in: []
+    notes: Drives two DC motor channels (four wires per side); external motor supply recommended.
 
   - id: 74hc595
     name: 74HC595 shift register (DIP-16)
@@ -587,11 +601,11 @@ sensors:
 
   - id: ultrasonic-hcsr04
     name: Ultrasonic distance sensor module (HC-SR04 class)
-    qty: 1
+    qty: 2
     status: owned
     interface: gpio
     voltage: 5v
-    kits: [kit-02-sensors-45]
+    kits: [kit-02-sensors-45, kit-03-4wd]
     used_in: []
     notes: TRIG/ECHO pins; NewPing or similar library.
 
@@ -645,6 +659,16 @@ sensors:
     used_in: []
     notes: Slot-type interrupter; beam broken when object inserted.
 
+  - id: line-tracker-module
+    name: Line tracking sensor module (IR array)
+    qty: 1
+    status: owned
+    interface: analog
+    voltage: 5v
+    kits: [kit-03-4wd]
+    used_in: []
+    notes: Multi-channel IR reflectance board for line follow; analog outputs typical.
+
 actuators:
   - id: stepper-28byj-48
     name: Stepper motor 28BYJ-48 (5 V)
@@ -665,6 +689,26 @@ actuators:
     kits: [kit-01-uno-learning]
     used_in: []
     notes: Servo library; adequate 5 V current recommended.
+
+  - id: gear-motor-tt
+    name: Gear motor TT class (3–6 V)
+    qty: 4
+    status: owned
+    interface: gpio
+    voltage: 5v
+    kits: [kit-03-4wd]
+    used_in: []
+    notes: Yellow TT motor typical; driven via L298N H-bridge.
+
+  - id: tire-tt
+    name: Plastic tire for TT gear motor
+    qty: 4
+    status: owned
+    interface: none
+    voltage: both
+    kits: [kit-03-4wd]
+    used_in: []
+    notes: Press-fit on TT motor shaft; ~65 mm diameter typical.
 
 displays:
   - id: 7seg-1digit
@@ -761,13 +805,93 @@ tools:
 
   - id: usb-cable-uno
     name: USB cable for Arduino Uno
+    qty: 2
+    status: owned
+    interface: none
+    voltage: both
+    kits: [kit-01-uno-learning, kit-03-4wd]
+    used_in: []
+    notes: Type-B or clone micro-USB; must support data.
+
+  - id: motor-mount-tt
+    name: Motor mounting bracket (TT motor)
+    qty: 4
+    status: owned
+    interface: none
+    voltage: both
+    kits: [kit-03-4wd]
+    used_in: []
+    notes: Acrylic or metal bracket; bolts motor to chassis.
+
+  - id: chassis-acrylic-4wd
+    name: Acrylic chassis plate (4WD car)
+    qty: 2
+    status: owned
+    interface: none
+    voltage: both
+    kits: [kit-03-4wd]
+    used_in: []
+    notes: Two-layer acrylic frame; upper and lower deck typical.
+
+  - id: uno-mount-plate
+    name: Arduino Uno mounting plate
     qty: 1
     status: owned
     interface: none
     voltage: both
-    kits: [kit-01-uno-learning]
+    kits: [kit-03-4wd]
     used_in: []
-    notes: Type-B or clone micro-USB; must support data.
+    notes: Acrylic plate for Uno R3 / UNO328 form factor.
+
+  - id: sensor-board-mount-4wd
+    name: Sensor board mounting plate (4WD car)
+    qty: 1
+    status: owned
+    interface: none
+    voltage: both
+    kits: [kit-03-4wd]
+    used_in: []
+    notes: Front mount for line tracker and ultrasonic modules.
+
+  - id: mounting-bracket-set-4wd
+    name: Mounting bracket set (4WD car)
+    qty: 1
+    status: owned
+    interface: none
+    voltage: both
+    kits: [kit-03-4wd]
+    used_in: []
+    notes: Assorted acrylic brackets for module and chassis assembly.
+
+  - id: steering-linkage-4wd
+    name: Steering linkage / gear (4WD car)
+    qty: 1
+    status: owned
+    interface: none
+    voltage: both
+    kits: [kit-03-4wd]
+    used_in: []
+    notes: Mechanical steering transfer part; verify fit on your chassis revision.
+
+  - id: assembly-drawings-4wd
+    name: 3D assembly drawing sheet (4WD car)
+    qty: 1
+    status: owned
+    interface: none
+    voltage: both
+    kits: [kit-03-4wd]
+    used_in: []
+    notes: Paper assembly guide with exploded views.
+
+  - id: standoff-screw-kit
+    name: Standoffs, nuts, and screws (assorted)
+    qty: 1
+    status: owned
+    interface: none
+    voltage: both
+    kits: [kit-03-4wd]
+    used_in: []
+    notes: M3 nylon/metal standoffs and fasteners for chassis stack.
 
   - id: battery-snap-9v
     name: 9 V battery snap connector
