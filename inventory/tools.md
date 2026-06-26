@@ -1,16 +1,15 @@
 # Tools and prototyping
 
-Not counted as circuit components but required for builds. See [parts.yaml](parts.yaml) → `tools`.
+See [parts.yaml](parts.yaml) → `tools`. Kit 01: [kits/kit-01-uno.md](kits/kit-01-uno.md).
 
-| id | name |
-|----|------|
-| breadboard | Solderless breadboard |
-| jumper-wires | Jumper wire kit |
-| usb-cable-uno | USB programming cable |
+| id | name | qty (kit 01) |
+|----|------|----------------|
+| breadboard | Solderless breadboard | 1 |
+| jumper-wires | Jumper wires | 65 |
+| dupont-10p-female-male | Dupont 10-pin F-M cable | 1 |
+| usb-cable-uno | USB cable | 1 |
+| battery-snap-9v | 9 V battery snap | 1 |
 
-## Optional
+## Optional (not in kit 01)
 
-- Multimeter
-- Bench power supply (5 V / 3.3 V)
-- Logic analyzer
-- Soldering iron + perfboard (when moving off breadboard)
+- Multimeter, bench supply, logic analyzer

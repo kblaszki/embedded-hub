@@ -1,16 +1,13 @@
 # Actuators
 
-Outputs that move, sound, or switch loads. See [parts.yaml](parts.yaml) → `actuators` and `modules`.
+See [parts.yaml](parts.yaml) → `actuators` and `modules`. Kit 01: [kits/kit-01-uno.md](kits/kit-01-uno.md).
 
-| id | name | used_in |
-|----|------|---------|
-| buzzer-module | Buzzer | 03-buzzer |
+| id | name | qty (kit 01) |
+|----|------|----------------|
+| stepper-28byj-48 | Stepper motor | 1 |
+| servo-sg90 | Micro servo 9 g | 1 |
+| buzzer-module | Buzzer | 1 |
+| relay-1ch | Relay module | 1 |
+| uln2003-stepper-driver | Stepper driver board | 1 |
 
-`74hc595` is listed under **modules** in `parts.yaml` (digital output expansion).
-
-## To add
-
-- SG90 servo
-- DC motor + L298N or transistor driver
-- Relay module (low-level trigger)
-- Stepper motor + driver (A4988 / ULN2003)
+`74hc595` is under **modules** (output expansion).

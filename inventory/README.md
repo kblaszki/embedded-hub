@@ -13,6 +13,7 @@ Catalog of boards and components you **physically own** (or plan to buy). Used t
 
 | File | Contents |
 |------|----------|
+| [kits/](kits/) | Learning kit manifests (translated part lists) |
 | [parts.yaml](parts.yaml) | Master list — boards, modules, passives, tools |
 | [boards.md](boards.md) | MCU boards (Uno, future ESP32) |
 | [passives.md](passives.md) | Resistors, capacitors, LEDs, buttons |
@@ -34,6 +35,7 @@ Catalog of boards and components you **physically own** (or plan to buy). Used t
 | `interface` | `gpio`, `pwm`, `analog`, `i2c`, `spi`, `uart`, `onewire`, `none` |
 | `voltage` | `5v`, `3v3`, or `both` |
 | `used_in` | Project folder names under `projects/` that use this part |
+| `kits` | Learning kit id(s) that included this part (see [kits/](kits/)) |
 | `notes` | Free text (package, module vs bare chip, etc.) |
 
 ## Projects already in this repo

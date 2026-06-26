@@ -1,11 +1,21 @@
 # Parts inventory (YAML)
 #
-# Edit qty and status to match your physical parts.
 # status: owned | planned | wishlist
+# kits: which learning-kit manifest included this part (see inventory/kits/)
 
 meta:
-  updated: null  # set to YYYY-MM-DD when you edit
-  notes: Skeleton — confirm quantities and add missing items.
+  updated: "2026-06-26"
+  notes: >-
+    Kit 01 manifest added. User owns 4 Arduino/ESP32 learning kits total;
+    kits 02–04 part lists pending.
+
+kits:
+  - id: kit-01-uno-learning
+    name: Arduino UNO comprehensive learning kit
+    manifest: kits/kit-01-uno.md
+    board: arduino-uno-r3
+    sets_documented: 1
+    notes: First of 4 kits; qty below is per this kit's manifest.
 
 boards:
   - id: arduino-uno-r3
@@ -14,34 +24,37 @@ boards:
     status: owned
     interface: none
     voltage: 5v
+    kits: [kit-01-uno-learning]
     used_in:
       - 00-blink
       - 01-led-buttons
       - 02-rgb-led
       - 03-buzzer
       - 04-shift-register
-    notes: Primary board; any Uno-compatible clone is fine.
-
-  # - id: esp32-devkit
-  #   name: ESP32 DevKit
-  #   qty: 0
-  #   status: wishlist
-  #   interface: none
-  #   voltage: 3v3
-  #   used_in: []
-  #   notes: Future WiFi / IoT projects.
+    notes: From learning kit 01; Uno-compatible clone typical.
 
 passives:
   - id: led-5mm
     name: LED 5 mm (single color)
-    qty: null
+    qty: 5
     status: owned
     interface: gpio
     voltage: 5v
+    kits: [kit-01-uno-learning]
     used_in:
       - 01-led-buttons
       - 04-shift-register
-    notes: Any color; use with series resistor.
+    notes: Kit 01 includes 5 pcs; use with series resistor.
+
+  - id: resistor-assortment
+    name: Resistor assortment (mixed values pack)
+    qty: 1
+    status: owned
+    interface: none
+    voltage: both
+    kits: [kit-01-uno-learning]
+    used_in: []
+    notes: Single pack; typical 220 Ω–10 kΩ mix for breadboard kits.
 
   - id: resistor-220
     name: Resistor 220 Ω
@@ -49,10 +62,11 @@ passives:
     status: owned
     interface: none
     voltage: both
+    kits: []
     used_in:
       - 01-led-buttons
       - 04-shift-register
-    notes: LED current limiting; 1/4 W through-hole.
+    notes: Likely in assortment pack; set qty after sorting.
 
   - id: resistor-10k
     name: Resistor 10 kΩ
@@ -60,9 +74,20 @@ passives:
     status: owned
     interface: none
     voltage: both
+    kits: []
     used_in:
       - 04-shift-register
-    notes: Photoresistor voltage divider (LightBar demo).
+    notes: Likely in assortment pack; LDR voltage divider.
+
+  - id: potentiometer
+    name: Potentiometer (breadboard trimmer)
+    qty: 1
+    status: owned
+    interface: analog
+    voltage: 5v
+    kits: [kit-01-uno-learning]
+    used_in: []
+    notes: Analog input; value often 10 kΩ in kits.
 
   - id: pushbutton-tactile
     name: Tactile push button (momentary NO)
@@ -70,40 +95,258 @@ passives:
     status: owned
     interface: gpio
     voltage: 5v
+    kits: []
     used_in:
       - 01-led-buttons
-    notes: Uses internal INPUT_PULLUP on Uno.
+    notes: Separate from kit key-switch module.
+
+  - id: key-switch
+    name: Key switch / push button module
+    qty: 1
+    status: owned
+    interface: gpio
+    voltage: 5v
+    kits: [kit-01-uno-learning]
+    used_in: []
+    notes: Kit "przycisk klucza"; may be keyed cap on tact switch.
 
   - id: rgb-led-cc
-    name: RGB LED common cathode
+    name: RGB LED common cathode (discrete)
     qty: null
     status: owned
     interface: pwm
     voltage: 5v
+    kits: []
     used_in:
       - 02-rgb-led
-    notes: COM to GND; R/G/B on PWM pins.
+    notes: Separate from kit RGB module board.
+
+  - id: rgb-led-module
+    name: RGB LED 3-color module (on PCB)
+    qty: 1
+    status: owned
+    interface: pwm
+    voltage: 5v
+    kits: [kit-01-uno-learning]
+    used_in: []
+    notes: Kit "moduł kolorów RGB 3"; common cathode or anode — verify silkscreen.
 
 modules:
   - id: buzzer-module
-    name: Buzzer module (active or passive)
-    qty: null
+    name: Buzzer module
+    qty: 1
     status: owned
     interface: gpio
     voltage: 5v
+    kits: [kit-01-uno-learning]
     used_in:
       - 03-buzzer
-    notes: Set BUZZER define in sketch to match hardware.
+    notes: Active or passive — match sketch BUZZER define.
 
   - id: 74hc595
     name: 74HC595 shift register (DIP-16)
-    qty: null
+    qty: 1
     status: owned
     interface: gpio
     voltage: 5v
+    kits: [kit-01-uno-learning]
     used_in:
       - 04-shift-register
-    notes: 8-bit SIPO; 3 Arduino pins for data/latch/clock.
+    notes: 8-bit SIPO.
+
+  - id: photoresistor
+    name: Photoresistor (LDR) sensor module
+    qty: 1
+    status: owned
+    interface: analog
+    voltage: 5v
+    kits: [kit-01-uno-learning]
+    used_in:
+      - 04-shift-register
+    notes: Module with comparator or bare divider — check board.
+
+  - id: ir-receiver
+    name: Infrared receiver module (e.g. VS1838B)
+    qty: 1
+    status: owned
+    interface: gpio
+    voltage: 5v
+    kits: [kit-01-uno-learning]
+    used_in: []
+    notes: Use with IR remote; IRremote or similar library.
+
+  - id: ir-remote
+    name: IR remote control handset
+    qty: 1
+    status: owned
+    interface: none
+    voltage: both
+    kits: [kit-01-uno-learning]
+    used_in: []
+    notes: Paired with ir-receiver; battery often included in remote.
+
+  - id: relay-1ch
+    name: Relay module (1 channel, low-level trigger)
+    qty: 1
+    status: owned
+    interface: gpio
+    voltage: 5v
+    kits: [kit-01-uno-learning]
+    used_in: []
+    notes: Often opto-isolated; do not drive heavy loads from Arduino 5V pin.
+
+  - id: sound-sensor
+    name: Sound sensor module (microphone board)
+    qty: 1
+    status: owned
+    interface: analog
+    voltage: 5v
+    kits: [kit-01-uno-learning]
+    used_in: []
+    notes: Kit "moduł dźwiękowy"; analog + digital out typical.
+
+  - id: rtc-module
+    name: Real-time clock module (DS1302 or DS3231 class)
+    qty: 1
+    status: owned
+    interface: gpio
+    voltage: 5v
+    kits: [kit-01-uno-learning]
+    used_in: []
+    notes: Kit "moduł zegara"; check chip and backup battery.
+
+  - id: uln2003-stepper-driver
+    name: ULN2003 stepper motor driver board
+    qty: 1
+    status: owned
+    interface: gpio
+    voltage: 5v
+    kits: [kit-01-uno-learning]
+    used_in: []
+    notes: 4-pin connector to 28BYJ-48 stepper.
+
+  - id: rfid-rc522
+    name: RFID reader module (RC522, SPI)
+    qty: 1
+    status: owned
+    interface: spi
+    voltage: 3v3
+    kits: [kit-01-uno-learning]
+    used_in: []
+    notes: 3.3 V logic; level shifters or 3.3 V board recommended on 5 V Uno.
+
+  - id: rfid-key-fob
+    name: RFID key fob tag
+    qty: 1
+    status: owned
+    interface: none
+    voltage: both
+    kits: [kit-01-uno-learning]
+    used_in: []
+    notes: Works with rfid-rc522.
+
+  - id: rfid-card
+    name: RFID white card
+    qty: 1
+    status: owned
+    interface: none
+    voltage: both
+    kits: [kit-01-uno-learning]
+    used_in: []
+    notes: Works with rfid-rc522.
+
+sensors:
+  - id: ds18b20
+    name: DS18B20 temperature sensor (1-Wire)
+    qty: 1
+    status: owned
+    interface: onewire
+    voltage: 5v
+    kits: [kit-01-uno-learning]
+    used_in: []
+    notes: Waterproof probe or TO-92; 4.7 kΩ pull-up may be needed.
+
+  - id: flame-sensor
+    name: Flame sensor module
+    qty: 1
+    status: owned
+    interface: analog
+    voltage: 5v
+    kits: [kit-01-uno-learning]
+    used_in: []
+    notes: IR flame detection; analog and digital outputs.
+
+  - id: tilt-switch
+    name: Tilt / ball switch sensor module
+    qty: 1
+    status: owned
+    interface: gpio
+    voltage: 5v
+    kits: [kit-01-uno-learning]
+    used_in: []
+    notes: Kit "przełącznik kulowy"; orientation alarm.
+
+  - id: temp-sensor-module
+    name: Temperature sensor module (kit board)
+    qty: 1
+    status: owned
+    interface: analog
+    voltage: 5v
+    kits: [kit-01-uno-learning]
+    used_in: []
+    notes: Separate from DS18B20; often LM35 or NTC on PCB — verify chip.
+
+  - id: water-sensor
+    name: Water level / rain detection sensor module
+    qty: 1
+    status: owned
+    interface: analog
+    voltage: 5v
+    kits: [kit-01-uno-learning]
+    used_in: []
+    notes: Exposed trace sensor; keep dry when not testing.
+
+  - id: joystick-xy
+    name: XY joystick module (2-axis + push)
+    qty: 1
+    status: owned
+    interface: analog
+    voltage: 5v
+    kits: [kit-01-uno-learning]
+    used_in: []
+    notes: Two potentiometers + SW pin; analogRead on X/Y.
+
+actuators:
+  - id: stepper-28byj-48
+    name: Stepper motor 28BYJ-48 (5 V)
+    qty: 1
+    status: owned
+    interface: gpio
+    voltage: 5v
+    kits: [kit-01-uno-learning]
+    used_in: []
+    notes: Use with uln2003-stepper-driver; external 5 V supply for torque.
+
+  - id: servo-sg90
+    name: Micro servo 9 g (SG90 class)
+    qty: 1
+    status: owned
+    interface: pwm
+    voltage: 5v
+    kits: [kit-01-uno-learning]
+    used_in: []
+    notes: Servo library; adequate 5 V current recommended.
+
+displays:
+  - id: 7seg-1digit
+    name: 1-digit 7-segment display
+    qty: 1
+    status: owned
+    interface: gpio
+    voltage: 5v
+    kits: [kit-01-uno-learning]
+    used_in: []
+    notes: Common cathode or anode — verify before wiring.
 
   - id: 7seg-common-cathode
     name: 7-segment display common cathode
@@ -111,48 +354,98 @@ modules:
     status: owned
     interface: gpio
     voltage: 5v
+    kits: []
     used_in:
       - 04-shift-register
-    notes: SevenSegment demo via 74HC595.
+    notes: May overlap with 7seg-1digit from kit; confirm how many single-digit units you have.
 
-  - id: photoresistor
-    name: Photoresistor (LDR)
-    qty: null
+  - id: 7seg-4digit
+    name: 4-digit 7-segment display module
+    qty: 1
     status: owned
-    interface: analog
+    interface: gpio
     voltage: 5v
-    used_in:
-      - 04-shift-register
-    notes: LightBar demo on A0 with 10 kΩ divider.
+    kits: [kit-01-uno-learning]
+    used_in: []
+    notes: Often TM1637 or bare 4-digit CC; check driver chip.
 
-sensors: []
-actuators: []
-displays: []
+  - id: led-matrix-8x8
+    name: 8×8 LED matrix module (MAX7219)
+    qty: 1
+    status: owned
+    interface: spi
+    voltage: 5v
+    kits: [kit-01-uno-learning]
+    used_in: []
+    notes: SPI (DIN, CLK, CS); LedControl or MD_MAX72XX library.
+
+  - id: lcd1602-i2c
+    name: LCD 1602 with I2C backpack (PCF8574)
+    qty: 1
+    status: owned
+    interface: i2c
+    voltage: 5v
+    kits: [kit-01-uno-learning]
+    used_in: []
+    notes: LiquidCrystal I2C; address 0x27 or 0x3F typical.
+
+  - id: keypad-4x4
+    name: 4×4 matrix membrane keypad
+    qty: 1
+    status: owned
+    interface: gpio
+    voltage: 5v
+    kits: [kit-01-uno-learning]
+    used_in: []
+    notes: 8 pins; Keypad library; scan rows/columns.
 
 tools:
   - id: breadboard
     name: Solderless breadboard
-    qty: null
+    qty: 1
     status: owned
     interface: none
     voltage: both
+    kits: [kit-01-uno-learning]
     used_in: []
-    notes: Half-size or full-size.
+    notes: Kit 01.
 
   - id: jumper-wires
-    name: Jumper wire kit (M-M, M-F)
-    qty: null
+    name: Jumper wire kit
+    qty: 65
     status: owned
     interface: none
     voltage: both
+    kits: [kit-01-uno-learning]
     used_in: []
-    notes: Various lengths.
+    notes: Kit lists 65 pcs assorted jumpers.
+
+  - id: dupont-10p-female-male
+    name: Dupont ribbon cable 10-pin female-to-male
+    qty: 1
+    status: owned
+    interface: none
+    voltage: both
+    kits: [kit-01-uno-learning]
+    used_in: []
+    notes: Useful for LCD/keypad multi-pin hookup.
 
   - id: usb-cable-uno
-    name: USB cable (Uno Type-B or clone micro)
-    qty: null
+    name: USB cable for Arduino Uno
+    qty: 1
     status: owned
     interface: none
     voltage: both
+    kits: [kit-01-uno-learning]
     used_in: []
-    notes: Must support data, not charge-only.
+    notes: Type-B or clone micro-USB; must support data.
+
+  - id: battery-snap-9v
+    name: 9 V battery snap connector
+    qty: 1
+    status: owned
+    interface: none
+    voltage: both
+    kits: [kit-01-uno-learning]
+    used_in: []
+    notes: For raw 9 V supply; use with Uno only per board specs (VIN/regulator).

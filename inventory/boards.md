@@ -2,16 +2,12 @@
 
 MCU and development boards. Primary entry: [parts.yaml](parts.yaml) → `boards`.
 
-| id | name | qty | status | used_in |
-|----|------|-----|--------|---------|
-| arduino-uno-r3 | Arduino Uno R3 | 1 | owned | 00–04 |
+| id | name | qty | status | kits |
+|----|------|-----|--------|------|
+| arduino-uno-r3 | Arduino Uno R3 | 1 | owned | kit-01 |
 
-## Notes
+See [kits/kit-01-uno.md](kits/kit-01-uno.md). Kits 02–04 pending.
 
-- Document bootloader, clone quirks, or spare boards here.
-- When you add ESP32, note 3.3 V logic and USB driver (CP2102 / CH340).
+## Wishlist
 
-## Wishlist (examples)
-
-- ESP32-WROOM-32 DevKit
-- Raspberry Pi Pico (future)
+- ESP32-WROOM-32 DevKit (when listed in a future kit)

@@ -1,17 +1,13 @@
 # Passives and basic components
 
-Discrete parts: resistors, capacitors, LEDs, buttons. See [parts.yaml](parts.yaml) → `passives`.
+See [parts.yaml](parts.yaml) → `passives`. Kit 01: [kits/kit-01-uno.md](kits/kit-01-uno.md).
 
-| id | name | used_in |
-|----|------|---------|
-| led-5mm | LED 5 mm | 01-led-buttons, 04-shift-register |
-| resistor-220 | 220 Ω | 01-led-buttons, 04-shift-register |
-| resistor-10k | 10 kΩ | 04-shift-register (LDR divider) |
-| pushbutton-tactile | Tactile button | 01-led-buttons |
-| rgb-led-cc | RGB LED common cathode | 02-rgb-led |
+| id | name | qty (kit 01) |
+|----|------|----------------|
+| led-5mm | LED 5 mm | 5 |
+| resistor-assortment | Resistor pack | 1 |
+| potentiometer | Potentiometer | 1 |
+| key-switch | Key button module | 1 |
+| rgb-led-module | RGB LED module (PCB) | 1 |
 
-## To add
-
-- Capacitors (100 nF decoupling, 10 µF bulk)
-- Additional resistor values (1 kΩ, 4.7 kΩ)
-- DIP switches, potentiometers
+Also used in projects: `resistor-220`, `resistor-10k`, `pushbutton-tactile`, `rgb-led-cc` (discrete).
