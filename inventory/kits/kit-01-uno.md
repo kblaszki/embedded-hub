@@ -1,11 +1,8 @@
 # Learning kit 01 — Arduino UNO comprehensive set
 
-**Polish product name (reference):** zestaw edukacyjny Arduino UNO  
-**User note:** 1 of 4 learning kits — manifests for kits 02–04 pending.
+## Contents
 
-## Contents (translated)
-
-| Qty | English name | `parts.yaml` id |
+| Qty | name | `parts.yaml` id |
 |-----|--------------|-----------------|
 | 1 | Arduino UNO board | `arduino-uno-r3` |
 | 1 | USB cable | `usb-cable-uno` |
@@ -43,41 +40,5 @@
 | 1 | 4×4 matrix keypad | `keypad-4x4` |
 | 1 | RGB LED 3-color module | `rgb-led-module` |
 | 1 | 9 V battery snap connector | `battery-snap-9v` |
-
-## Translation notes
-
-| Polish (original) | English |
-|-------------------|---------|
-| tablica UNO | Arduino UNO board |
-| kabel skokowy | jumper wire |
-| płyta stykowa | breadboard |
-| światło LED | LED |
-| rezystor 1-pakowy | resistor assortment pack |
-| linia Dupont żeńska na męską | Dupont female-to-male cable |
-| potencjometr | potentiometer |
-| brzęczyk | buzzer |
-| odbiornik podczerwieni | infrared receiver |
-| czujnik płomienia | flame sensor |
-| przełącznik kulowy | tilt / ball switch sensor |
-| fotorezystor | photoresistor |
-| przycisk klucza | key switch / key button |
-| pilot zdalnego sterowania | IR remote control |
-| wyświetlacz 4-cyfrowy | 4-digit 7-segment display |
-| matryca punktowa 8×8 | 8×8 LED dot matrix |
-| wyświetlacz 1-cyfrowy | 1-digit 7-segment display |
-| płyta sterownicza silnika krokowego | stepper motor driver board |
-| silnik krokowy | stepper motor |
-| serwo 9g | 9 g micro servo |
-| IIC 1602 LCD | 1602 LCD with I2C module |
-| moduł joysticka XY | XY joystick module |
-| moduł temperatury | temperature sensor module |
-| moduł testu wody | water detection module |
-| moduł RFID / brelok / karta | RFID module, fob, card |
-| moduł dźwiękowy | sound sensor module |
-| moduł przekaźnika | relay module |
-| moduł zegara | RTC clock module |
-| klawiatura 4×4 | 4×4 keypad |
-| moduł kolorów RGB 3 | 3-color RGB LED module |
-| zatrzask baterii 9 V | 9 V battery snap |
 
 Typical kit IC/driver assumptions (verify on your boards): IR receiver VS1838B, stepper 28BYJ-48 + ULN2003, RFID RC522, matrix MAX7219, RTC DS1302 or DS3231.

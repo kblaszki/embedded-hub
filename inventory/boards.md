@@ -6,7 +6,7 @@ MCU and development boards. Primary entry: [parts.yaml](parts.yaml) → `boards`
 |----|------|-----|--------|------|
 | arduino-uno-r3 | Arduino Uno R3 | 1 | owned | kit-01 |
 
-See [kits/kit-01-uno.md](kits/kit-01-uno.md). Kits 02–04 pending.
+See [kits/kit-01-uno.md](kits/kit-01-uno.md).
 
 ## Wishlist
 

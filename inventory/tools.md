@@ -1,6 +1,6 @@
 # Tools and prototyping
 
-See [parts.yaml](parts.yaml) → `tools`. Kit 01: [kits/kit-01-uno.md](kits/kit-01-uno.md).
+See [parts.yaml](parts.yaml) → `tools`. Kits: [kit-01-uno](kits/kit-01-uno.md), [kit-02-sensors](kits/kit-02-sensors.md).
 
 | id | name | qty (kit 01) |
 |----|------|----------------|
@@ -9,6 +9,8 @@ See [parts.yaml](parts.yaml) → `tools`. Kit 01: [kits/kit-01-uno.md](kits/kit-
 | dupont-10p-female-male | Dupont 10-pin F-M cable | 1 |
 | usb-cable-uno | USB cable | 1 |
 | battery-snap-9v | 9 V battery snap | 1 |
+| breadboard-power | Breadboard power module | 1 |
+| buck-mp1584 | MP1584 buck converter | 1 |
 
 ## Optional (not in kit 01)
 

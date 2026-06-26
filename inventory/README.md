@@ -13,7 +13,7 @@ Catalog of boards and components you **physically own** (or plan to buy). Used t
 
 | File | Contents |
 |------|----------|
-| [kits/](kits/) | Learning kit manifests (translated part lists) |
+| [kits/](kits/) | Learning kit manifests |
 | [parts.yaml](parts.yaml) | Master list — boards, modules, passives, tools |
 | [boards.md](boards.md) | MCU boards (Uno, future ESP32) |
 | [passives.md](passives.md) | Resistors, capacitors, LEDs, buttons |

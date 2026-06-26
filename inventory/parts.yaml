@@ -4,18 +4,17 @@
 # kits: which learning-kit manifest included this part (see inventory/kits/)
 
 meta:
-  updated: "2026-06-26"
-  notes: >-
-    Kit 01 manifest added. User owns 4 Arduino/ESP32 learning kits total;
-    kits 02–04 part lists pending.
+  updated: "2026-06-24"
+  notes: Kit 01 and kit 02 manifests.
 
 kits:
   - id: kit-01-uno-learning
     name: Arduino UNO comprehensive learning kit
     manifest: kits/kit-01-uno.md
     board: arduino-uno-r3
-    sets_documented: 1
-    notes: First of 4 kits; qty below is per this kit's manifest.
+  - id: kit-02-sensors-45
+    name: 45-in-1 sensor module kit
+    manifest: kits/kit-02-sensors.md
 
 boards:
   - id: arduino-uno-r3
@@ -102,13 +101,13 @@ passives:
 
   - id: key-switch
     name: Key switch / push button module
-    qty: 1
+    qty: 2
     status: owned
     interface: gpio
     voltage: 5v
-    kits: [kit-01-uno-learning]
+    kits: [kit-01-uno-learning, kit-02-sensors-45]
     used_in: []
-    notes: Kit "przycisk klucza"; may be keyed cap on tact switch.
+    notes: Key switch module; may be keyed cap on tact switch.
 
   - id: rgb-led-cc
     name: RGB LED common cathode (discrete)
@@ -123,13 +122,43 @@ passives:
 
   - id: rgb-led-module
     name: RGB LED 3-color module (on PCB)
+    qty: 2
+    status: owned
+    interface: pwm
+    voltage: 5v
+    kits: [kit-01-uno-learning, kit-02-sensors-45]
+    used_in: []
+    notes: 3-color RGB LED module on PCB; common cathode or anode — verify silkscreen.
+
+  - id: rgb-led-smd
+    name: RGB LED SMD module (on PCB)
     qty: 1
     status: owned
     interface: pwm
     voltage: 5v
-    kits: [kit-01-uno-learning]
+    kits: [kit-02-sensors-45]
     used_in: []
-    notes: Kit "moduł kolorów RGB 3"; common cathode or anode — verify silkscreen.
+    notes: Surface-mount RGB on breakout; verify common anode/cathode.
+
+  - id: led-dual-3mm-cc
+    name: Dual-color LED common cathode 3 mm (on PCB)
+    qty: 1
+    status: owned
+    interface: gpio
+    voltage: 5v
+    kits: [kit-02-sensors-45]
+    used_in: []
+    notes: Two-color 3 mm LED module; common cathode typical.
+
+  - id: led-dual-color
+    name: Dual-color LED module (on PCB)
+    qty: 1
+    status: owned
+    interface: gpio
+    voltage: 5v
+    kits: [kit-02-sensors-45]
+    used_in: []
+    notes: Two-pin or three-pin dual LED breakout.
 
 modules:
   - id: buzzer-module
@@ -142,6 +171,136 @@ modules:
     used_in:
       - 03-buzzer
     notes: Active or passive — match sketch BUZZER define.
+
+  - id: buzzer-active
+    name: Active buzzer module
+    qty: 1
+    status: owned
+    interface: gpio
+    voltage: 5v
+    kits: [kit-02-sensors-45]
+    used_in: []
+    notes: Drives itself when powered; digital HIGH typical.
+
+  - id: buzzer-passive-small
+    name: Small passive buzzer module
+    qty: 1
+    status: owned
+    interface: pwm
+    voltage: 5v
+    kits: [kit-02-sensors-45]
+    used_in: []
+    notes: Needs square wave / tone(); smaller than kit 01 buzzer board.
+
+  - id: laser-module
+    name: Laser head sensor module (KY-008 class)
+    qty: 1
+    status: owned
+    interface: pwm
+    voltage: 5v
+    kits: [kit-02-sensors-45]
+    used_in: []
+    notes: Laser diode on breakout; avoid direct eye exposure.
+
+  - id: ir-transmitter
+    name: Infrared emission module
+    qty: 1
+    status: owned
+    interface: gpio
+    voltage: 5v
+    kits: [kit-02-sensors-45]
+    used_in: []
+    notes: IR LED transmitter; pair with ir-receiver for tests.
+
+  - id: rotary-encoder
+    name: Rotary encoder module
+    qty: 1
+    status: owned
+    interface: gpio
+    voltage: 5v
+    kits: [kit-02-sensors-45]
+    used_in: []
+    notes: CLK/DT/SW pins typical; debounce in software.
+
+  - id: magic-light-cup
+    name: Magic light cup module
+    qty: 1
+    status: owned
+    interface: gpio
+    voltage: 5v
+    kits: [kit-02-sensors-45]
+    used_in: []
+    notes: Tilt-activated RGB LED board; shake or invert to trigger.
+
+  - id: reed-switch-mini
+    name: Mini reed switch module
+    qty: 1
+    status: owned
+    interface: gpio
+    voltage: 5v
+    kits: [kit-02-sensors-45]
+    used_in: []
+    notes: Magnetic proximity switch on small PCB.
+
+  - id: reed-switch-large
+    name: Large reed switch module
+    qty: 1
+    status: owned
+    interface: gpio
+    voltage: 5v
+    kits: [kit-02-sensors-45]
+    used_in: []
+    notes: Larger reed switch breakout than mini variant.
+
+  - id: breadboard-power
+    name: Breadboard power supply module
+    qty: 1
+    status: owned
+    interface: none
+    voltage: both
+    kits: [kit-02-sensors-45]
+    used_in: []
+    notes: 3.3 V / 5 V rails for breadboard; external DC input typical.
+
+  - id: buck-mp1584
+    name: MP1584EN buck converter module
+    qty: 1
+    status: owned
+    interface: none
+    voltage: both
+    kits: [kit-02-sensors-45]
+    used_in: []
+    notes: Step-down DC-DC; adjust output before connecting loads.
+
+  - id: sd-card-module
+    name: SD card reader module
+    qty: 1
+    status: owned
+    interface: spi
+    voltage: 3v3
+    kits: [kit-02-sensors-45]
+    used_in: []
+    notes: SPI microSD breakout; 3.3 V logic.
+
+  - id: ps2-joystick
+    name: PS2 joystick game controller module
+    qty: 1
+    status: owned
+    interface: gpio
+    voltage: 3v3
+    kits: [kit-02-sensors-45]
+    used_in: []
+    notes: PlayStation-style pad; many GPIO lines; 3.3 V typical.
+
+  - id: led-blink-auto
+    name: Auto-blinking LED module
+    qty: 1
+    status: owned
+    interface: gpio
+    voltage: 5v
+    kits: [kit-02-sensors-45]
+    used_in: []
+    notes: Self-flashing LED on PCB; power only, no MCU pin required.
 
   - id: 74hc595
     name: 74HC595 shift register (DIP-16)
@@ -156,22 +315,22 @@ modules:
 
   - id: photoresistor
     name: Photoresistor (LDR) sensor module
-    qty: 1
+    qty: 2
     status: owned
     interface: analog
     voltage: 5v
-    kits: [kit-01-uno-learning]
+    kits: [kit-01-uno-learning, kit-02-sensors-45]
     used_in:
       - 04-shift-register
     notes: Module with comparator or bare divider — check board.
 
   - id: ir-receiver
     name: Infrared receiver module (e.g. VS1838B)
-    qty: 1
+    qty: 2
     status: owned
     interface: gpio
     voltage: 5v
-    kits: [kit-01-uno-learning]
+    kits: [kit-01-uno-learning, kit-02-sensors-45]
     used_in: []
     notes: Use with IR remote; IRremote or similar library.
 
@@ -187,11 +346,11 @@ modules:
 
   - id: relay-1ch
     name: Relay module (1 channel, low-level trigger)
-    qty: 1
+    qty: 2
     status: owned
     interface: gpio
     voltage: 5v
-    kits: [kit-01-uno-learning]
+    kits: [kit-01-uno-learning, kit-02-sensors-45]
     used_in: []
     notes: Often opto-isolated; do not drive heavy loads from Arduino 5V pin.
 
@@ -203,17 +362,27 @@ modules:
     voltage: 5v
     kits: [kit-01-uno-learning]
     used_in: []
-    notes: Kit "moduł dźwiękowy"; analog + digital out typical.
+    notes: Microphone / sound level board; analog + digital out typical.
+
+  - id: sound-microphone
+    name: Sound / microphone sensor module
+    qty: 1
+    status: owned
+    interface: analog
+    voltage: 5v
+    kits: [kit-02-sensors-45]
+    used_in: []
+    notes: KY-038 class board; separate from kit 01 sound-sensor.
 
   - id: rtc-module
     name: Real-time clock module (DS1302 or DS3231 class)
-    qty: 1
+    qty: 2
     status: owned
     interface: gpio
     voltage: 5v
-    kits: [kit-01-uno-learning]
+    kits: [kit-01-uno-learning, kit-02-sensors-45]
     used_in: []
-    notes: Kit "moduł zegara"; check chip and backup battery.
+    notes: RTC board; DS1302 in kit 02 — check chip and backup battery.
 
   - id: uln2003-stepper-driver
     name: ULN2003 stepper motor driver board
@@ -258,51 +427,51 @@ modules:
 sensors:
   - id: ds18b20
     name: DS18B20 temperature sensor (1-Wire)
-    qty: 1
+    qty: 2
     status: owned
     interface: onewire
     voltage: 5v
-    kits: [kit-01-uno-learning]
+    kits: [kit-01-uno-learning, kit-02-sensors-45]
     used_in: []
-    notes: Waterproof probe or TO-92; 4.7 kΩ pull-up may be needed.
+    notes: Waterproof probe or TO-92 on breakout; 4.7 kΩ pull-up may be needed.
 
   - id: flame-sensor
     name: Flame sensor module
-    qty: 1
+    qty: 2
     status: owned
     interface: analog
     voltage: 5v
-    kits: [kit-01-uno-learning]
+    kits: [kit-01-uno-learning, kit-02-sensors-45]
     used_in: []
     notes: IR flame detection; analog and digital outputs.
 
   - id: tilt-switch
     name: Tilt / ball switch sensor module
-    qty: 1
+    qty: 2
     status: owned
     interface: gpio
     voltage: 5v
-    kits: [kit-01-uno-learning]
+    kits: [kit-01-uno-learning, kit-02-sensors-45]
     used_in: []
-    notes: Kit "przełącznik kulowy"; orientation alarm.
+    notes: Ball / tilt switch module; orientation alarm.
 
   - id: temp-sensor-module
     name: Temperature sensor module (kit board)
-    qty: 1
+    qty: 3
     status: owned
     interface: analog
     voltage: 5v
-    kits: [kit-01-uno-learning]
+    kits: [kit-01-uno-learning, kit-02-sensors-45]
     used_in: []
-    notes: Separate from DS18B20; often LM35 or NTC on PCB — verify chip.
+    notes: Separate from DS18B20; often LM35 or NTC on PCB — verify chip. Kit 02 includes 2 boards.
 
   - id: water-sensor
     name: Water level / rain detection sensor module
-    qty: 1
+    qty: 2
     status: owned
     interface: analog
     voltage: 5v
-    kits: [kit-01-uno-learning]
+    kits: [kit-01-uno-learning, kit-02-sensors-45]
     used_in: []
     notes: Exposed trace sensor; keep dry when not testing.
 
@@ -315,6 +484,166 @@ sensors:
     kits: [kit-01-uno-learning]
     used_in: []
     notes: Two potentiometers + SW pin; analogRead on X/Y.
+
+  - id: soil-moisture
+    name: Soil moisture sensor module
+    qty: 1
+    status: owned
+    interface: analog
+    voltage: 5v
+    kits: [kit-02-sensors-45]
+    used_in: []
+    notes: Capacitive or resistive probe; keep electronics dry.
+
+  - id: dht-temp-humidity
+    name: Temperature and humidity sensor module (DHT class)
+    qty: 1
+    status: owned
+    interface: gpio
+    voltage: 5v
+    kits: [kit-02-sensors-45]
+    used_in: []
+    notes: DHT11 or DHT22 on PCB; single data pin.
+
+  - id: gyro-module
+    name: Gyroscope module (MPU6050 class)
+    qty: 1
+    status: owned
+    interface: i2c
+    voltage: 3v3
+    kits: [kit-02-sensors-45]
+    used_in: []
+    notes: 6-axis IMU typical; I2C address 0x68 or 0x69.
+
+  - id: pulse-sensor
+    name: Finger detection / pulse sensor module
+    qty: 1
+    status: owned
+    interface: analog
+    voltage: 5v
+    kits: [kit-02-sensors-45]
+    used_in: []
+    notes: Photoplethysmography clip; analog heartbeat waveform.
+
+  - id: mic-sensitivity
+    name: Microphone sensitivity sensor module
+    qty: 1
+    status: owned
+    interface: analog
+    voltage: 5v
+    kits: [kit-02-sensors-45]
+    used_in: []
+    notes: Adjustable gain mic board; analog and digital outs.
+
+  - id: touch-metal
+    name: Metal touch sensor module
+    qty: 1
+    status: owned
+    interface: gpio
+    voltage: 5v
+    kits: [kit-02-sensors-45]
+    used_in: []
+    notes: Capacitive metal pad; digital output typical.
+
+  - id: hall-switch
+    name: Hall switch sensor module
+    qty: 1
+    status: owned
+    interface: gpio
+    voltage: 5v
+    kits: [kit-02-sensors-45]
+    used_in: []
+    notes: Digital Hall switch; magnet proximity.
+
+  - id: hall-linear
+    name: Linear Hall magnetic sensor module
+    qty: 1
+    status: owned
+    interface: analog
+    voltage: 5v
+    kits: [kit-02-sensors-45]
+    used_in: []
+    notes: Analog output vs magnetic field strength.
+
+  - id: hall-analog
+    name: Analog Hall magnetic sensor module
+    qty: 1
+    status: owned
+    interface: analog
+    voltage: 5v
+    kits: [kit-02-sensors-45]
+    used_in: []
+    notes: Linear Hall variant; verify vs hall-linear board silkscreen.
+
+  - id: hall-magnetic
+    name: Hall magnetic sensor module
+    qty: 1
+    status: owned
+    interface: gpio
+    voltage: 5v
+    kits: [kit-02-sensors-45]
+    used_in: []
+    notes: Digital Hall effect board; separate from hall-switch variant.
+
+  - id: ultrasonic-hcsr04
+    name: Ultrasonic distance sensor module (HC-SR04 class)
+    qty: 1
+    status: owned
+    interface: gpio
+    voltage: 5v
+    kits: [kit-02-sensors-45]
+    used_in: []
+    notes: TRIG/ECHO pins; NewPing or similar library.
+
+  - id: knock-sensor
+    name: Knock / tap sensor module
+    qty: 1
+    status: owned
+    interface: gpio
+    voltage: 5v
+    kits: [kit-02-sensors-45]
+    used_in: []
+    notes: Vibration piezo knock board; digital or analog out.
+
+  - id: obstacle-ir
+    name: Obstacle avoidance IR photoelectric module
+    qty: 1
+    status: owned
+    interface: gpio
+    voltage: 5v
+    kits: [kit-02-sensors-45]
+    used_in: []
+    notes: IR proximity sensor; digital output when object near.
+
+  - id: impact-sensor
+    name: Impact / shock sensor module
+    qty: 1
+    status: owned
+    interface: gpio
+    voltage: 5v
+    kits: [kit-02-sensors-45]
+    used_in: []
+    notes: Spring or ball shock detector; digital trigger.
+
+  - id: vibration-switch
+    name: Vibration switch sensor module
+    qty: 1
+    status: owned
+    interface: gpio
+    voltage: 5v
+    kits: [kit-02-sensors-45]
+    used_in: []
+    notes: Vibration-activated switch; digital output.
+
+  - id: optical-break
+    name: Optical break / slot sensor module
+    qty: 1
+    status: owned
+    interface: gpio
+    voltage: 5v
+    kits: [kit-02-sensors-45]
+    used_in: []
+    notes: Slot-type interrupter; beam broken when object inserted.
 
 actuators:
   - id: stepper-28byj-48
