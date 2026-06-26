@@ -8,6 +8,7 @@ alwaysApply: true
 ## Layout
 
 - All firmware projects live under `projects/`.
+- Physical parts catalog lives under `inventory/` ([parts.yaml](inventory/parts.yaml)).
 - Use naming: `projects/NN-kebab-name/` where `NN` is a two-digit ordinal (`00`, `01`, …).
 - Increment the ordinal for each new project; scan existing folders to find the next number.
 

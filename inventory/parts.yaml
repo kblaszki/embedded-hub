@@ -1,0 +1,158 @@
+# Parts inventory (YAML)
+#
+# Edit qty and status to match your physical parts.
+# status: owned | planned | wishlist
+
+meta:
+  updated: null  # set to YYYY-MM-DD when you edit
+  notes: Skeleton — confirm quantities and add missing items.
+
+boards:
+  - id: arduino-uno-r3
+    name: Arduino Uno R3
+    qty: 1
+    status: owned
+    interface: none
+    voltage: 5v
+    used_in:
+      - 00-blink
+      - 01-led-buttons
+      - 02-rgb-led
+      - 03-buzzer
+      - 04-shift-register
+    notes: Primary board; any Uno-compatible clone is fine.
+
+  # - id: esp32-devkit
+  #   name: ESP32 DevKit
+  #   qty: 0
+  #   status: wishlist
+  #   interface: none
+  #   voltage: 3v3
+  #   used_in: []
+  #   notes: Future WiFi / IoT projects.
+
+passives:
+  - id: led-5mm
+    name: LED 5 mm (single color)
+    qty: null
+    status: owned
+    interface: gpio
+    voltage: 5v
+    used_in:
+      - 01-led-buttons
+      - 04-shift-register
+    notes: Any color; use with series resistor.
+
+  - id: resistor-220
+    name: Resistor 220 Ω
+    qty: null
+    status: owned
+    interface: none
+    voltage: both
+    used_in:
+      - 01-led-buttons
+      - 04-shift-register
+    notes: LED current limiting; 1/4 W through-hole.
+
+  - id: resistor-10k
+    name: Resistor 10 kΩ
+    qty: null
+    status: owned
+    interface: none
+    voltage: both
+    used_in:
+      - 04-shift-register
+    notes: Photoresistor voltage divider (LightBar demo).
+
+  - id: pushbutton-tactile
+    name: Tactile push button (momentary NO)
+    qty: null
+    status: owned
+    interface: gpio
+    voltage: 5v
+    used_in:
+      - 01-led-buttons
+    notes: Uses internal INPUT_PULLUP on Uno.
+
+  - id: rgb-led-cc
+    name: RGB LED common cathode
+    qty: null
+    status: owned
+    interface: pwm
+    voltage: 5v
+    used_in:
+      - 02-rgb-led
+    notes: COM to GND; R/G/B on PWM pins.
+
+modules:
+  - id: buzzer-module
+    name: Buzzer module (active or passive)
+    qty: null
+    status: owned
+    interface: gpio
+    voltage: 5v
+    used_in:
+      - 03-buzzer
+    notes: Set BUZZER define in sketch to match hardware.
+
+  - id: 74hc595
+    name: 74HC595 shift register (DIP-16)
+    qty: null
+    status: owned
+    interface: gpio
+    voltage: 5v
+    used_in:
+      - 04-shift-register
+    notes: 8-bit SIPO; 3 Arduino pins for data/latch/clock.
+
+  - id: 7seg-common-cathode
+    name: 7-segment display common cathode
+    qty: null
+    status: owned
+    interface: gpio
+    voltage: 5v
+    used_in:
+      - 04-shift-register
+    notes: SevenSegment demo via 74HC595.
+
+  - id: photoresistor
+    name: Photoresistor (LDR)
+    qty: null
+    status: owned
+    interface: analog
+    voltage: 5v
+    used_in:
+      - 04-shift-register
+    notes: LightBar demo on A0 with 10 kΩ divider.
+
+sensors: []
+actuators: []
+displays: []
+
+tools:
+  - id: breadboard
+    name: Solderless breadboard
+    qty: null
+    status: owned
+    interface: none
+    voltage: both
+    used_in: []
+    notes: Half-size or full-size.
+
+  - id: jumper-wires
+    name: Jumper wire kit (M-M, M-F)
+    qty: null
+    status: owned
+    interface: none
+    voltage: both
+    used_in: []
+    notes: Various lengths.
+
+  - id: usb-cable-uno
+    name: USB cable (Uno Type-B or clone micro)
+    qty: null
+    status: owned
+    interface: none
+    voltage: both
+    used_in: []
+    notes: Must support data, not charge-only.

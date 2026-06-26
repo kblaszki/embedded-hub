@@ -27,6 +27,10 @@ Every project should contain:
 
 See [`.cursor/README.md`](.cursor/README.md) for AI agent rules and skills used in this repo.
 
+## Parts inventory
+
+List hardware you own in [`inventory/`](inventory/) ([`parts.yaml`](inventory/parts.yaml)) so the agent can suggest realistic next projects. Ask *“What should I build next?”* or use the **`suggest-embedded-projects`** skill.
+
 ## Circuit diagrams and simulation
 
 | Tool | Guide | Role in this repo |
@@ -46,12 +50,11 @@ See [`.cursor/README.md`](.cursor/README.md) for AI agent rules and skills used 
 
 Preview images are generated locally — use the **`wokwi-preview`** skill or `npm run capture-preview:all` (see [WOKWI.md](WOKWI.md)).
 
-## Optional per-project folders
-
-Add these when a project needs them:
+## Optional folders (add when needed)
 
 | Path | Purpose |
 |------|---------|
+| [`inventory/`](inventory/) | Parts you own — project ideas and learning path |
 | `diagram.json`, `wokwi.toml` | Wokwi circuit + simulation ([WOKWI.md](WOKWI.md)) |
 | `schematics/preview.png` | Wokwi simulation teaser (generate with `wokwi-preview` skill) |
 | `lib/` | Vendored Arduino libraries |

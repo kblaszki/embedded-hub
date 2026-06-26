@@ -1,0 +1,16 @@
+---
+description: Use inventory/parts.yaml when suggesting projects or parts usage
+globs: inventory/**
+alwaysApply: false
+---
+
+# Parts inventory
+
+When the user asks what to build next, which parts to use, or for a learning path:
+
+1. Read [inventory/parts.yaml](../../inventory/parts.yaml) and [inventory/README.md](../../inventory/README.md).
+2. Prefer projects buildable with `status: owned` parts; list gaps if something is `wishlist`.
+3. Avoid duplicating topics already in [projects/](../../projects/) (00–04 and beyond).
+4. Use the `suggest-embedded-projects` skill for structured proposals.
+
+When the user adds or updates inventory files, keep `parts.yaml` and category `.md` files in sync; `parts.yaml` is the source of truth for the agent.
